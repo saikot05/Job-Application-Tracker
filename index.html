@@ -53,9 +53,9 @@
 
             </div>
             <div>
-                <button id="all-btn" class="btn btn-info   px-10">All</button>
-                <button id="interview-btn" class="btn  ">Interview</button>
-                <button id="rejected-btn" class="btn   ">Rejected</button>
+                <button onclick="toggleStyle('all-btn')" id="all-btn" class="btn btn-info   px-10">All</button>
+                <button onclick="toggleStyle('interview-btn')" id="interview-btn" class="btn  ">Interview</button>
+                <button onclick="toggleStyle('rejected-btn')" id="rejected-btn" class="btn">Rejected</button>
             </div>
         </section>
 
@@ -63,11 +63,11 @@
             <div class="card grid grid-cols-[5fr_1fr] justify-between items-start bg-base-100 shadow rounded-xl p-5 mb-4">
                 <div class="space-y-6">
                     <div>
-                        <h2 class="text-2xl font-bold text-[#002C5C]">Mobile First Corp</h2>
-                        <p class="text-[#64748B]">React Native Developer</p>
+                        <h2 class="company-name text-2xl font-bold text-[#002C5C]">Mobile First Corp</h2>
+                        <p class="position text-[#64748B]">React Native Developer</p>
                     </div>
                     <div>
-                        <p class="text-[#64748B]">Remote • Full-time • $130,000 - $175,000</p>
+                        <p class="status text-[#64748B]">Remote • Full-time • $130,000 - $175,000</p>
                     </div>
                     <div class="">
                         <p class="inline-block bg-blue-100 px-4 py-1 text-[#002C5C]">NOT APPLIED</p>
@@ -85,11 +85,11 @@
             <div class="card grid grid-cols-[5fr_1fr] justify-between items-start bg-base-100 shadow rounded-xl p-5 mb-4">
                 <div class="space-y-6">
                     <div>
-                        <h2 class="text-2xl font-bold text-[#002C5C]">WebFlow Agency</h2>
-                        <p class="text-[#64748B]">Web Designer & Developer</p>
+                        <h2 class="company-name text-2xl font-bold text-[#002C5C]">WebFlow Agency</h2>
+                        <p class="position text-[#64748B]">Web Designer & Developer</p>
                     </div>
                     <div>
-                        <p class="text-[#64748B]">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                        <p class="status text-[#64748B]">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
                     </div>
                     <div class="">
                         <p class="inline-block bg-blue-100 px-4 py-1 text-[#002C5C]">NOT APPLIED</p>
@@ -107,11 +107,11 @@
             <div class="card grid grid-cols-[5fr_1fr] justify-between items-start bg-base-100 shadow rounded-xl p-5 mb-4">
                 <div class="space-y-6">
                     <div>
-                        <h2 class="text-2xl font-bold text-[#002C5C]">DataViz Solutions</h2>
-                        <p class="text-[#64748B]">Data Visualization Specialist</p>
+                        <h2 class="company-name text-2xl font-bold text-[#002C5C]">DataViz Solutions</h2>
+                        <p class="position text-[#64748B]">Data Visualization Specialist</p>
                     </div>
                     <div>
-                        <p class="text-[#64748B]">Boston, MA • Full-time • $125,000 - $165,000</p>
+                        <p class="status text-[#64748B]">Boston, MA • Full-time • $125,000 - $165,000</p>
                     </div>
                     <div class="">
                         <p class="inline-block bg-blue-100 px-4 py-1 text-[#002C5C]">NOT APPLIED</p>
@@ -130,11 +130,11 @@
             <div class="card grid grid-cols-[5fr_1fr] justify-between items-start bg-base-100 shadow rounded-xl p-5 mb-4">
                 <div class="space-y-6">
                     <div>
-                        <h2 class="text-2xl font-bold text-[#002C5C]">CloudFirst Inc</h2>
-                        <p class="text-[#64748B]">Backend Developer</p>
+                        <h2 class="company-name text-2xl font-bold text-[#002C5C]">CloudFirst Inc</h2>
+                        <p class="position text-[#64748B]">Backend Developer</p>
                     </div>
                     <div>
-                        <p class="text-[#64748B]">Seattle, WA • Full-time • $140,000 - $190,000</p>
+                        <p class="status text-[#64748B]">Seattle, WA • Full-time • $140,000 - $190,000</p>
                     </div>
                     <div class="">
                         <p class="inline-block bg-blue-100 px-4 py-1 text-[#002C5C]">NOT APPLIED</p>
@@ -152,11 +152,11 @@
             <div class="card grid grid-cols-[5fr_1fr] justify-between items-start bg-base-100 shadow rounded-xl p-5 mb-4">
                 <div class="space-y-6">
                     <div>
-                        <h2 class="text-2xl font-bold text-[#002C5C]">Innovation Labs</h2>
-                        <p class="text-[#64748B]">UI/UX Engineer</p>
+                        <h2 class="company-name text-2xl font-bold text-[#002C5C]">Innovation Labs</h2>
+                        <p class="position text-[#64748B]">UI/UX Engineer</p>
                     </div>
                     <div>
-                        <p class="text-[#64748B]">Austin, TX • Full-time • $110,000 - $150,000</p>
+                        <p class="status text-[#64748B]">Austin, TX • Full-time • $110,000 - $150,000</p>
                     </div>
                     <div class="">
                         <p class="inline-block bg-blue-100 px-4 py-1 text-[#002C5C]">NOT APPLIED</p>
@@ -174,11 +174,11 @@
             <div class="card grid grid-cols-[5fr_1fr] justify-between items-start bg-base-100 shadow rounded-xl p-5 mb-4">
                 <div class="space-y-6">
                     <div>
-                        <h2 class="text-2xl font-bold text-[#002C5C]">MegaCorp Solutions</h2>
-                        <p class="text-[#64748B]">JavaScript Developer</p>
+                        <h2 class="company-name text-2xl font-bold text-[#002C5C]">MegaCorp Solutions</h2>
+                        <p class="position text-[#64748B]">JavaScript Developer</p>
                     </div>
                     <div>
-                        <p class="text-[#64748B]">New York, NY • Full-time • $130,000 - $170,000</p>
+                        <p class="status text-[#64748B]">New York, NY • Full-time • $130,000 - $170,000</p>
                     </div>
                     <div class="">
                         <p class="inline-block bg-blue-100 px-4 py-1 text-[#002C5C]">NOT APPLIED</p>
@@ -196,11 +196,11 @@
             <div class="card grid grid-cols-[5fr_1fr] justify-between items-start bg-base-100 shadow rounded-xl p-5 mb-4">
                 <div class="space-y-6">
                     <div>
-                        <h2 class="text-2xl font-bold text-[#002C5C]">StartupXYZ</h2>
-                        <p class="text-[#64748B]">Full Stack Engineer</p>
+                        <h2 class="company-name text-2xl font-bold text-[#002C5C]">StartupXYZ</h2>
+                        <p class="position text-[#64748B]">Full Stack Engineer</p>
                     </div>
                     <div>
-                        <p class="text-[#64748B]">Remote • Full-time • $120,000 - $160,000</p>
+                        <p class="status text-[#64748B]">Remote • Full-time • $120,000 - $160,000</p>
                     </div>
                     <div class="">
                         <p class="inline-block bg-blue-100 px-4 py-1 text-[#002C5C]">NOT APPLIED</p>
@@ -218,11 +218,11 @@
             <div class="card grid grid-cols-[5fr_1fr] justify-between items-start bg-base-100 shadow rounded-xl p-5 mb-4">
                 <div class="space-y-6">
                     <div>
-                        <h2 class="text-2xl font-bold text-[#002C5C]">TechCorp Industries</h2>
-                        <p class="text-[#64748B]">Senior Frontend Developer</p>
+                        <h2 class="company-name text-2xl font-bold text-[#002C5C]">TechCorp Industries</h2>
+                        <p class="position text-[#64748B]">Senior Frontend Developer</p>
                     </div>
                     <div>
-                        <p class="text-[#64748B]">San Francisco, CA • Full-time • $130,000 - $175,000</p>
+                        <p class="status text-[#64748B]">San Francisco, CA • Full-time • $130,000 - $175,000</p>
                     </div>
                     <div class="">
                         <p class="inline-block bg-blue-100 px-4 py-1 text-[#002C5C]">NOT APPLIED</p>
@@ -239,6 +239,8 @@
             </div>
         </section>
     </main>
+
+    <script src="./script/assignment.js"></script>
 </body>
 
 </html>
