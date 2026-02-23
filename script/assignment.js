@@ -14,15 +14,17 @@ const allCardSection = document.getElementById('all-card');
 const mainContainer = document.querySelector('main');
 const filteredSection = document.getElementById('filtered-section');
 
-
-
-
 function calculateCount() {
     total.innerText = allCardSection.children.length;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
-    document.getElementById('job-count').innerText = allCardSection.children.length + ' jobs';
-
+    if (currentStatus === 'ALL') {
+        document.getElementById('job-count').innerText = allCardSection.children.length + ' jobs';
+    } else if (currentStatus === 'INTERVIEW') {
+        document.getElementById('job-count').innerText = interviewList.length + ' jobs';
+    } else if (currentStatus === 'REJECTED') {
+        document.getElementById('job-count').innerText = rejectedList.length + ' jobs';
+    }
 }
 calculateCount();
 
@@ -30,12 +32,15 @@ function toggleStyle(id) {
     allBtn.classList.remove('btn-info');
     interviewBtn.classList.remove('btn-info');
     rejectedBtn.classList.remove('btn-info');
-    currentStatus = id;
+
     if (id === 'all-btn') {
+        currentStatus = 'ALL';
         allBtn.classList.add('btn-info');
     } else if (id === 'interview-btn') {
+        currentStatus = 'INTERVIEW';
         interviewBtn.classList.add('btn-info');
     } else if (id === 'rejected-btn') {
+        currentStatus = 'REJECTED';
         rejectedBtn.classList.add('btn-info');
     }
 
@@ -51,7 +56,7 @@ function toggleStyle(id) {
         filteredSection.classList.remove('hidden');
         renderRejected();
     }
-
+    calculateCount();
 }
 mainContainer.addEventListener('click', function(event) {
 
@@ -123,14 +128,21 @@ mainContainer.addEventListener('click', function(event) {
         rejectedList = rejectedList.filter(item => item.companyName !== companyName);
         parentNode.remove();
         calculateCount();
-
+        if (currentStatus === 'interview-btn') {
+            renderInterview();
+        } else if (currentStatus === 'rejected-btn') {
+            renderRejected();
+        }
     }
-
 });
 
 
 function renderInterview() {
     filteredSection.innerHTML = '';
+    if (interviewList.length === 0) {
+        showEmptyMsg();
+        return;
+    }
     for (let interview of interviewList) {
 
         let div = document.createElement('div');
@@ -151,6 +163,9 @@ function renderInterview() {
                         <button class="btn btn-outline btn-success">INTERVIEW</button>
                         <button class="btn btn-outline btn-error">REJECTED</button>
                     </div>
+                </div>
+                <div class="flex justify-end">
+                    <button title="delete" class="delete-btn btn rounded-full"><i class="fa-solid fa-trash-can"></i></button>
                 </div>`
         filteredSection.appendChild(div);
     }
@@ -158,6 +173,10 @@ function renderInterview() {
 
 function renderRejected() {
     filteredSection.innerHTML = '';
+    if (rejectedList.length === 0) {
+        showEmptyMsg();
+        return;
+    }
     for (let rejected of rejectedList) {
 
         let div = document.createElement('div');
@@ -178,7 +197,19 @@ function renderRejected() {
                         <button class="btn btn-outline btn-success">INTERVIEW</button>
                         <button class="btn btn-outline btn-error">REJECTED</button>
                     </div>
+                </div>
+                <div class="flex justify-end">
+                    <button title="delete" class="delete-btn btn rounded-full"><i class="fa-solid fa-trash-can"></i></button>
                 </div>`
         filteredSection.appendChild(div);
     }
+}
+
+function showEmptyMsg() {
+    filteredSection.innerHTML = `
+    <div class="min-h-60  text-center justify-between items-center bg-base-100 shadow rounded-xl py-15 mt-5">
+    <p><i class="fa-regular fa-file"></i></p>
+    <h2 class="text-2xl font-bold text-gray-600">No Jobs Available</h2>
+    <p class="text-gray-500 mt-2">Check back soon for new job opportunities</p>
+    </div>`;
 }
