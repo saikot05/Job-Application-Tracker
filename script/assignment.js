@@ -1,5 +1,6 @@
 let interviewList = [];
 let rejectedList = [];
+let currentStatus = 'ALL';
 
 let total = document.getElementById('total-count');
 let interviewCount = document.getElementById('interview-count');
@@ -28,7 +29,7 @@ function toggleStyle(id) {
     allBtn.classList.remove('btn-info');
     interviewBtn.classList.remove('btn-info');
     rejectedBtn.classList.remove('btn-info');
-
+    currentStatus = id;
     if (id === 'all-btn') {
         allBtn.classList.add('btn-info');
     } else if (id === 'interview-btn') {
@@ -40,14 +41,19 @@ function toggleStyle(id) {
     if (id === 'interview-btn') {
         allCardSection.classList.add('hidden');
         filteredSection.classList.remove('hidden');
+        renderInterview();
     } else if (id === 'all-btn') {
         allCardSection.classList.remove('hidden');
         filteredSection.classList.add('hidden');
+    } else if (id === 'rejected-btn') {
+        allCardSection.classList.add('hidden');
+        filteredSection.classList.remove('hidden');
+        renderRejected();
     }
 
 }
 mainContainer.addEventListener('click', function(event) {
-    // console.log(event.target.classList.contains('btn-success'));
+
     if (event.target.classList.contains('btn-success')) {
         const parentNode = event.target.parentNode.parentNode;
         const companyName = parentNode.querySelector('.company-name').innerText;
@@ -72,8 +78,11 @@ mainContainer.addEventListener('click', function(event) {
             interviewList.push(cardInfo)
         }
 
+        rejectedList = rejectedList.filter(item => item.companyName !== cardInfo.companyName);
         calculateCount();
-        renderInterview();
+        if (currentStatus === 'rejected-btn') {
+            renderRejected();
+        }
 
     } else if (event.target.classList.contains('btn-error')) {
         const parentNode = event.target.parentNode.parentNode;
@@ -99,12 +108,15 @@ mainContainer.addEventListener('click', function(event) {
             rejectedList.push(cardInfo)
         }
 
+        interviewList = interviewList.filter(item => item.companyName !== cardInfo.companyName);
+
+        if (currentStatus === 'interview-btn') {
+            renderInterview();
+        }
         calculateCount();
-
-        renderRejected();
-
     }
 });
+
 
 function renderInterview() {
     filteredSection.innerHTML = '';
