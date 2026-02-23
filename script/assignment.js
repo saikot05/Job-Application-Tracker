@@ -21,6 +21,7 @@ function calculateCount() {
     total.innerText = allCardSection.children.length;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
+    document.getElementById('job-count').innerText = allCardSection.children.length + ' jobs';
 
 }
 calculateCount();
@@ -114,7 +115,17 @@ mainContainer.addEventListener('click', function(event) {
             renderInterview();
         }
         calculateCount();
+    } else if (event.target.closest('.delete-btn')) {
+        const parentNode = event.target.closest('.card');
+        const companyName = parentNode.querySelector('.company-name').innerText;
+
+        interviewList = interviewList.filter(item => item.companyName !== companyName);
+        rejectedList = rejectedList.filter(item => item.companyName !== companyName);
+        parentNode.remove();
+        calculateCount();
+
     }
+
 });
 
 
